@@ -111,24 +111,15 @@ rm(list=ls())
 
 
 ######################### AGREGADOS MONETARIOS #########################
-#https://www.bcra.gob.ar/PublicacionesEstadisticas/Cuadros_estandarizados_series_estadisticas.asp
 
-#series <- read.xlsx(xlsxFile = "https://www.bcra.gob.ar/Pdfs/PublicacionesEstadisticas/panser.xls")
-
-#series <- fread('https://www.bcra.gob.ar/Pdfs/PublicacionesEstadisticas/panser.xls')
-
-#series <- readxl::read_xls("panser.xls")
-
-url <- "https://www.bcra.gob.ar/Pdfs/PublicacionesEstadisticas/panser.xls"
-file <- "/Users/IDECOR/Documents/Code/BCRA/seriesdata.html"
+url <- "https://www.bcra.gob.ar/Pdfs/PublicacionesEstadisticas/series.xlsm"
+file <- "/Users/IDECOR/Documents/Code/BCRA/series.xlsm"
 download.file(url, file)
 
-leliq <- import("seriesdata.html")
-convert("seriesdata.html", "seriesdata.csv")
+series <- fread('https://www.bcra.gob.ar/Pdfs/PublicacionesEstadisticas/series.xlsm')
 
-leliq <- read.csv("/Users/IDECOR/Documents/Code/BCRA/seriesdata.csv", header = T, sep = ",", dec = ",")
-leliq <- as.data.frame(leliq)
-head(leliq)
+series <- readxl::read_excel("/Users/IDECOR/Documents/Code/BCRA/series.xlsm")
+
 
 
 
