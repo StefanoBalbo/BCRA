@@ -11,7 +11,8 @@ library(openxlsx)
 library(scales) 
 library(data.table)
 
-directorio <- "/Users/IDECOR/Documents/Code/BCRA/"
+#directorio <- "/Users/IDECOR/Documents/Code/BCRA/"
+directorio <- "/Users/stefa/Documents/Code/BCRA/"
 setwd(directorio); getwd()
 
 
@@ -64,6 +65,14 @@ ggplot(data = graph, aes(x = Fecha)) +
 #  scale_x_datetime(labels = scales::date_format(format = "%Y-%m-%d", tz = "UTC", locale = NULL))
 
 rm(list=ls())
+
+
+# Tipo de Cambio Minorista de Referencia de la Ciudad de Buenos Aires
+
+source("automat_fun.R")
+concotiza(directorio)
+load("tc.Rda"); tc
+head(tc)
 
 
 ############################## LELIQs ############################
