@@ -11,8 +11,8 @@ library(openxlsx)
 library(scales) 
 library(data.table)
 
-#directorio <- "/Users/IDECOR/Documents/Code/BCRA/"
-directorio <- "/Users/stefa/Documents/Code/BCRA/"
+directorio <- "/Users/IDECOR/Documents/Code/BCRA/"
+#directorio <- "/Users/stefa/Documents/Code/BCRA/"
 setwd(directorio); getwd()
 
 
@@ -141,16 +141,15 @@ head(leliq)
 
 write.xlsx(leliq, "leliqdata.xlsx")
 
-#graph = leliq  %>% 
-#  group_by(Vto)  %>% 
-#  summarise(LELIQs_pesos = sum(Valor_nominal_pesos))
-#graph
+graph = leliq  %>% 
+  group_by(Vto)  %>% 
+  summarise(LELIQs_pesos = sum(Valor_nominal_pesos))
+graph
 
-#ggplot(data = graph, 
-#       aes(x = Vto, y = LELIQs_pesos)) + geom_line() + ggtitle("LELIQs (en $ trillones)")
-  #scale_y_continuous(labels = scales::label_number_si()) 
+ggplot(data = graph, 
+       aes(x = Vto, y = LELIQs_pesos)) + ggtitle("LELIQs (en $ trillones)") + scale_y_continuous(labels = scales::label_number_si()) 
 
-#rm(list=ls())
+rm(list=ls())
 
 
 ######################### AGREGADOS MONETARIOS #########################
